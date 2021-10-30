@@ -43,6 +43,14 @@ body{
     color: white;
     background-color: #222;
 }
+
+.saveButton {
+    display: inline-block;
+    padding: 6px;
+    font-size: 90%;
+    margin: 10px;
+}
+
 .nav-item{
     background-color: #343A40 !important;
 }
@@ -77,28 +85,79 @@ body{
     
 }
 
-textarea{
-    color:white;
-    background-color: #333;
-    resize: none;
-    /* border-top: none; */
-    border-bottom: none;
-    border-left: none;
-    border-color: grey;
+
+
+.editing, #highlighting-lang-html, #highlighting-lang-css, #highlighting-lang-js {
+    margin: 0px;
+    padding: 10px;
+    border: 0;
+    width: 95%;
     height: 100%;
-    
+    margin: 0 auto;
+}
+.editing, #highlighting-lang-html, #highlighting-lang-css, #highlighting-lang-js{
+    font-size: 12pt;
+    font-family: monospace;
+    line-height: 15pt;
+    tab-size: 2;
+}
+
+#highlighting-lang-html *, #highlighting-lang-css *, #highlighting-lang-js * {
+    font-size: 12pt;
+    font-family: monospace;
+    line-height: 15pt;
+    tab-size: 2;
+}
+
+  
+  
+.editing, #highlighting-lang-html, #highlighting-lang-css, #highlighting-lang-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+ 
+.editing {
+    z-index: 1;
+}
+#highlighting-lang-html, #highlighting-lang-css, #highlighting-lang-js {
+    z-index: 0;
+}
+
+
+.editing {
+    color: transparent;
+    background: transparent;
+    caret-color: white; 
+}
+
+.editing, #highlighting-lang-html, #highlighting-lang-css, #highlighting-lang-js {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.editing {
+    resize: none;
+}
+
+* {
+    font-family: "Fira Code", monospace;
+}
+p code {
+    border-radius: 2px;
+    background-color: #eee;
+    color: #111;
 }
 
 .Panel{
-    
+    position: relative;
     float: left;
     width: 50%;
-    
+    height: 100%;  
 }
 
 iframe{
     border: none;
-    border-top: 1px solid black;
     background-color: white;
     min-height: 100%;    
 }
@@ -110,6 +169,11 @@ iframe{
 }
 
 #bodyContainer{
-    padding: 5px;
-    height: 100%;
+    padding-top: 5px;
+    width: 100%;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
 }
