@@ -1,50 +1,84 @@
 <!-- <!DOCTYPE html> -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <title>Code-Player</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><img src="logo.png" style="height: 30px;"></a>
-        <a class="navbar-brand" href="#">Code-Player</a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <div class = "toggleButton active" id = "html">HTML</div>
-            </li>
-            <li class="nav-item active">
-                <div class = "toggleButton" id = "css">CSS</div>
-            </li>
-            <li class="nav-item active">
-                <div class = "toggleButton" id = "javascript">Javascript</div>
-            </li>
-            <li class="nav-item active">
-                <div class = "toggleButton active" id = "output">Output</div>
-            </li>
-            
-        </ul>
-      </nav>
 
+<body>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="logo.png" style="height: 30px;"></a>
+            <a class="navbar-brand" href="#">Code-Player</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <div class="toggleButton active" id="html">HTML</div>
+                </li>
+                <li class="nav-item">
+                    <div class="toggleButton" id="css">CSS</div>
+                </li>
+                <li class="nav-item">
+                    <div class="toggleButton" id="javascript">Javascript</div>
+                </li>
+                <li class="nav-item">
+                    <div class="toggleButton active" id="output">Output</div>
+                </li>
+                <li class="nav-item">
+                    <div class="saveButton btn btn-success" id="output">SAVE</div>
+                </li>
+
+            </ul>
+        </nav>
+
+ 
+
+        <div id="bodyContainer">
+            <div id= "htmlPanel" class="Panel">
+                <textarea placeholder="Enter HTML Source Code" id="htmlPanelVal" class="editing" spellcheck="false"
+                    oninput="update(this.value,'html'); sync_scroll(this ,'html');" onscroll="sync_scroll(this);"
+                    onkeydown="check_tab(this, event);"></textarea>
+                <pre id = "highlighting-lang-html" class = "highlighting" aria-hidden="true">
+                    <code class="language-html" id="highlighting-content-html"></code>
+                </pre>
+            </div>
+
+            <div id="cssPanel" class="Panel hidden">
+                <textarea placeholder="Enter CSS Source Code" id="cssPanelVal" class="editing" spellcheck="false"
+                    oninput="update(this.value, 'css'); sync_scroll(this, 'css');" onscroll="sync_scroll(this);"
+                    onkeydown="check_tab(this, event);"></textarea>
+                <pre id = "highlighting-lang-css" class = "highlighting" aria-hidden="true">
+                    <code class="language-css" id="highlighting-content-css"></code>
+                </pre>
+            </div>
+
+            <div id="javascriptPanel" class="Panel hidden">
+                <textarea placeholder="Enter JS Source Code" id="javascriptPanelVal" class="editing" spellcheck="false"
+                    oninput="update(this.value, 'js'); sync_scroll(this, 'js');" onscroll="sync_scroll(this);"
+                    onkeydown="check_tab(this, event);"></textarea>
+                <pre id = "highlighting-lang-js" class = "highlighting" aria-hidden="true">
+                    <code class="language-javascript" id="highlighting-content-js"></code>
+                </pre>
+            </div>
+
+            <iframe id="outputPanel" class="Panel"></iframe>
+
+        </div>
     </div>
 
-    <div id = "bodyContainer">
-    
-        <textarea id = "htmlPanel" class="Panel"><p>Hello World</p></textarea>
-        
-        <textarea  id = "cssPanel" class="Panel hidden">p{ color: green }</textarea>
-        
-        <textarea  id = "javascriptPanel" class="Panel hidden">  </textarea>
-        
-        <iframe id = "outputPanel" class="Panel"></iframe>
-        
-    </div> 
-
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="prism.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
